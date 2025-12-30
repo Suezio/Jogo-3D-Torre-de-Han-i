@@ -9,7 +9,7 @@
 
 **Um jogo puzzle clássico reinventado com gráficos 3D modernos e efeitos visuais impressionantes**
 
-[🎮 Jogar Demo](#como-executar) • [📖 Sobre](#sobre-o-projeto) • [🛠️ Tecnologias](#tecnologias) • [📦 Instalação](#instalação)
+[🎮 Jogar](#-como-executar) • [📖 Sobre](#-sobre-o-projeto) • [🛠️ Tecnologias](#-tecnologias) • [📦 Instalação](#-instalação)
 
 </div>
 
