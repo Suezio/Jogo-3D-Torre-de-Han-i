@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Torre de Hanói 3D - Jogo puzzle clássico em gráficos 3D realistas" />
+    <title>Torre de Hanói 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <canvas id="game-canvas"></canvas>
+    
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+      <!-- Header Stats -->
+      <div id="game-header">
+        <div class="stat-box">
+          <span class="stat-label">MOVIMENTOS</span>
+          <span id="moves-counter" class="stat-value">0</span>
+        </div>
+        <div class="stat-box timer-box">
+          <span class="stat-label">TEMPO</span>
+          <span id="timer" class="stat-value">00:00</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">MÍNIMO</span>
+          <span id="min-moves" class="stat-value">-</span>
+        </div>
+      </div>
+
+      <!-- Main Menu -->
+      <div id="main-menu" class="menu-panel">
+        <div class="menu-content">
+          <h1 class="game-title">TORRE DE HANÓI</h1>
+          <p class="game-subtitle">DESAFIO 3D</p>
+          
+          <div class="menu-section">
+            <label class="input-label">SEU NOME</label>
+            <input type="text" id="player-name" class="text-input" placeholder="Digite seu nome..." maxlength="20" />
+          </div>
+
+          <div class="menu-section">
+            <label class="input-label">NÚMERO DE DISCOS</label>
+            <div class="disk-selector">
+              <button class="disk-btn" data-disks="3">3</button>
+              <button class="disk-btn selected" data-disks="4">4</button>
+              <button class="disk-btn" data-disks="5">5</button>
+              <button class="disk-btn" data-disks="6">6</button>
+              <button class="disk-btn" data-disks="7">7</button>
+              <button class="disk-btn" data-disks="8">8</button>
+            </div>
+          </div>
+
+          <button id="start-btn" class="primary-btn">
+            <span>INICIAR JOGO</span>
+            <div class="btn-glow"></div>
+          </button>
+
+          <button id="records-btn" class="secondary-btn">
+            🏆 VER RECORDES
+          </button>
+        </div>
+      </div>
+
+      <!-- Victory Panel -->
+      <div id="victory-panel" class="menu-panel hidden">
+        <div class="menu-content">
+          <div class="victory-icon">🏆</div>
+          <h2 class="victory-title">PARABÉNS!</h2>
+          <p class="victory-subtitle">Você completou o puzzle!</p>
+          
+          <div class="victory-stats">
+            <div class="victory-stat">
+              <span class="victory-stat-value" id="final-moves">0</span>
+              <span class="victory-stat-label">Movimentos</span>
+            </div>
+            <div class="victory-stat">
+              <span class="victory-stat-value" id="final-time">00:00</span>
+              <span class="victory-stat-label">Tempo</span>
+            </div>
+          </div>
+
+          <div id="new-record" class="new-record hidden">
+            ⭐ NOVO RECORDE! ⭐
+          </div>
+
+          <button id="play-again-btn" class="primary-btn">
+            JOGAR NOVAMENTE
+          </button>
+          <button id="menu-btn" class="secondary-btn">
+            MENU PRINCIPAL
+          </button>
+        </div>
+      </div>
+
+      <!-- Records Panel -->
+      <div id="records-panel" class="menu-panel hidden">
+        <div class="menu-content records-content">
+          <h2 class="panel-title">🏆 RECORDES</h2>
+          
+          <div class="records-tabs">
+            <button class="records-tab active" data-disks="3">3 Discos</button>
+            <button class="records-tab" data-disks="4">4 Discos</button>
+            <button class="records-tab" data-disks="5">5 Discos</button>
+            <button class="records-tab" data-disks="6">6 Discos</button>
+            <button class="records-tab" data-disks="7">7 Discos</button>
+            <button class="records-tab" data-disks="8">8 Discos</button>
+          </div>
+
+          <div id="records-list" class="records-list">
+            <!-- Records will be populated here -->
+          </div>
+
+          <button id="close-records-btn" class="secondary-btn">
+            VOLTAR
+          </button>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div id="instructions" class="hidden">
+        <p>Clique em um disco para selecioná-lo, depois clique em outra torre para movê-lo.</p>
+        <p>Mova todos os discos para a torre da direita!</p>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
